@@ -11,6 +11,25 @@ const YoutubeForm = () => {
     onSubmit: (values) => {
       console.log("Form data", values);
     },
+    validate: (values) => {
+      //values.name values.email values.channel
+      //errors.name errors.email errors.channel
+      //errors.name = "This field is required"
+      let errors = {};
+
+      if (!values.name) {
+        errors.name = "Required";
+      }
+
+      if (!values.email) {
+        errors.email = "Required";
+      }
+      if (!values.channel) {
+        errors.channel = "Required";
+      }
+
+      return errors;
+    },
   });
 
   // console.log("Form Values", formik.values);
