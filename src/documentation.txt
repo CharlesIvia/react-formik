@@ -5,3 +5,13 @@ Step1. Pass in initialValues to useFormik hook. The properties must match the na
 Step2. Add onChange= {formik.handleChange} and value object.
        e.g. value = {formik.values.name}
        e.g. value = {formik.values.email}
+
+2. Handling form submission
+
+Step1. On the form tag specify onSubmit = {formik.handleSubmit}
+
+Step2. Add onSubmit method on formik object.
+
+        e.g onSubmit : values => {
+            console.log("Form Data", values)
+        }
