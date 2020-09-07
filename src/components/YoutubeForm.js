@@ -44,7 +44,7 @@ const YoutubeForm = () => {
     validate,
   });
 
-  console.log("Form Errors", formik.errors);
+  console.log("Visited", formik.touched);
   return (
     <div>
       <h1 className="youtube-header">Youtube Form</h1>
@@ -56,6 +56,7 @@ const YoutubeForm = () => {
             id="name"
             name="name"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.name}
           />
 
@@ -71,6 +72,7 @@ const YoutubeForm = () => {
             id="email"
             name="email"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.email}
           />
 
@@ -86,6 +88,7 @@ const YoutubeForm = () => {
             id="channel"
             name="channel"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.channel}
           />
 
