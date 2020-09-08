@@ -12,35 +12,35 @@ const onSubmit = (values) => {
   console.log("Form data", values);
 };
 
-const validate = (values) => {
-  //values.name values.email values.channel
-  //errors.name errors.email errors.channel
-  //errors.name = "This field is required"
-  let errors = {};
+// const validate = (values) => {
+//   //values.name values.email values.channel
+//   //errors.name errors.email errors.channel
+//   //errors.name = "This field is required"
+//   let errors = {};
 
-  if (!values.name) {
-    errors.name = "Required";
-  }
+//   if (!values.name) {
+//     errors.name = "Required";
+//   }
 
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (
-    !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-      values.email
-    )
-  ) {
-    errors.email = "Invalid email address";
-  }
-  if (!values.channel) {
-    errors.channel = "Required";
-  }
+//   if (!values.email) {
+//     errors.email = "Required";
+//   } else if (
+//     !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+//       values.email
+//     )
+//   ) {
+//     errors.email = "Invalid email address";
+//   }
+//   if (!values.channel) {
+//     errors.channel = "Required";
+//   }
 
-  return errors;
-};
+//   return errors;
+// };
 
 const validationSchema = Yup.object({
-  name: Yup.string().required("Required"),
-  email: Yup.string.email("Invalid email format").required("Required"),
+  name: Yup.string().required("Required!"),
+  email: Yup.string().email("Invalid email format").required("Required"),
   channel: Yup.string().required("Required"),
 });
 
@@ -48,7 +48,8 @@ const YoutubeForm = () => {
   const formik = useFormik({
     initialValues,
     onSubmit,
-    validate,
+    validationSchema,
+    //validate,
   });
 
   console.log("Visited", formik.touched);
